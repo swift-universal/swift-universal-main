@@ -15,10 +15,10 @@ legacy main-library dependency lane inside private `swift-universal` packages.
 
 ## Compatibility
 
-SwiftUniversalMain requires Swift 6.1 or later and supports:
+SwiftUniversalMain requires Swift 6.2 or later and supports:
 
 - iOS 16+
-- macOS 13+
+- macOS 11+
 - macCatalyst 13+
 - tvOS 16+
 - visionOS 1+
@@ -244,7 +244,7 @@ final class UserViewModel: Injectable {
 }
 ```
 
-See the [Injectable documentation](sources/swift-universal-main/Documentation.docc/Injectable.md) for a
+See the [Injectable documentation](Sources/SwiftUniversalMain/Documentation.docc/Injectable.md) for a
 deeper explanation and more examples.
 
 ## 🧪 Testing
@@ -271,7 +271,7 @@ and create. Any contributions you make are **greatly appreciated**.
 
 ## 📬 Contact
 
-🔗 Package Home: `private/universal/substrate/collectives/swift-universal/private/universal/spm/domain/system/swift-universal-main`
+🔗 Package Home: `private/universal/substrate/collectives/swift-universal/private/universal/domain/system/spm/swift-universal-main`
 
 ## 💖 Acknowledgments
 

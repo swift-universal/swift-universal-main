@@ -2,7 +2,7 @@
   "entries" : [
     {
       "summary" : "Seed: Commissioned persona and guardrails.",
-      "title" : "Agency Log — WrkstrmMain (Prime)"
+      "title" : "Agency Log — SwiftUniversalMain (Prime)"
     }
   ],
   "links" : [
@@ -34,12 +34,12 @@
     "^carrie@todo3"
   ],
   "schemaVersion" : "0.4.0",
-  "slug" : "wrkstrm-main-prime",
-  "sourcePath" : "code/mono/apple/spm/universal/domain/system/wrkstrm-main/.clia/agents/prime/prime@wrkstrm-main.agency.md",
+  "slug" : "swift-universal-main-prime",
+  "sourcePath" : "code/mono/apple/spm/universal/domain/system/swift-universal-main/.clia/agents/prime/prime@swift-universal-main.agency.md",
   "status" : "draft",
   "tags" : [
 
   ],
-  "title" : "Agency — WrkstrmMain (Prime)",
+  "title" : "Agency — SwiftUniversalMain (Prime)",
   "updated" : "2026-01-25T00:00:00Z"
 }

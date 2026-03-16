@@ -17,9 +17,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "WrkstrmMainTests"
-               BuildableName = "WrkstrmMainTests"
-               BlueprintName = "WrkstrmMainTests"
+               BlueprintIdentifier = "SwiftUniversalMainTests"
+               BuildableName = "SwiftUniversalMainTests"
+               BlueprintName = "SwiftUniversalMainTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>

@@ -56,12 +56,12 @@
     "No secrets in logs."
   ],
   "schemaVersion" : "0.4.0",
-  "slug" : "wrkstrm-main-prime",
-  "sourcePath" : "code/mono/apple/spm/universal/domain/system/wrkstrm-main/.clia/agents/prime/prime@wrkstrm-main.agenda.md",
+  "slug" : "swift-universal-main-prime",
+  "sourcePath" : "code/mono/apple/spm/universal/domain/system/swift-universal-main/.clia/agents/prime/prime@swift-universal-main.agenda.md",
   "status" : "draft",
   "tags" : [
 
   ],
-  "title" : "AGENDA — WrkstrmMain (Prime)",
+  "title" : "AGENDA — SwiftUniversalMain (Prime)",
   "updated" : "2026-01-25T00:00:00Z"
 }

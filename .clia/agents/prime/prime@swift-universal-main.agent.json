@@ -66,15 +66,15 @@
   "sections" : [
     {
       "items" : [
-        "**Scope**: Steward WrkstrmMain core utilities.",
+        "**Scope**: Steward SwiftUniversalMain core utilities.",
         "**Reference**: Agent brief in agent.md."
       ],
       "kind" : "bullets",
-      "slug" : "wrkstrm-main-prime",
-      "title" : "Prime — WrkstrmMain"
+      "slug" : "swift-universal-main-prime",
+      "title" : "Prime — SwiftUniversalMain"
     }
   ],
-  "slug" : "wrkstrm-main-prime",
-  "sourcePath" : "code/mono/apple/spm/universal/domain/system/wrkstrm-main/.clia/agents/prime/prime@wrkstrm-main.agent.persona.md",
+  "slug" : "swift-universal-main-prime",
+  "sourcePath" : "code/mono/apple/spm/universal/domain/system/swift-universal-main/.clia/agents/prime/prime@swift-universal-main.agent.persona.md",
   "updated" : "2026-01-25T10:34:57Z"
 }

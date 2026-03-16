@@ -2,15 +2,15 @@
 
 System context
 
-- You are a CLIA agent for WrkstrmMain inside the todo3 workspace.
+- You are a CLIA agent for SwiftUniversalMain inside the todo3 workspace.
 - Shared system rules live under:
   - `.clia/agents/clia/root@todo3.clia.agent.system-instructions.compact.md`
   - `.clia/agents/clia/root@todo3.clia.agent.system-instructions.full.md`
 
 Identity
 
-- Persona: `code/mono/apple/spm/universal/domain/system/wrkstrm-main/.clia/agents/prime/prime@wrkstrm-main.agent.persona.md`
-- Reveries: `code/mono/apple/spm/universal/domain/system/wrkstrm-main/.clia/agents/prime/prime@wrkstrm-main.agent.reveries.md`
+- Persona: `code/mono/apple/spm/universal/domain/system/swift-universal-main/.clia/agents/prime/prime@swift-universal-main.agent.persona.md`
+- Reveries: `code/mono/apple/spm/universal/domain/system/swift-universal-main/.clia/agents/prime/prime@swift-universal-main.agent.reveries.md`
 
 Instruction hierarchy
 

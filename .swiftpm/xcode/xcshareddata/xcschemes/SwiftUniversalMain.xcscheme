@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "WrkstrmMain"
-               BuildableName = "WrkstrmMain"
-               BlueprintName = "WrkstrmMain"
+               BlueprintIdentifier = "SwiftUniversalMain"
+               BuildableName = "SwiftUniversalMain"
+               BlueprintName = "SwiftUniversalMain"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -50,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "WrkstrmMain"
-            BuildableName = "WrkstrmMain"
-            BlueprintName = "WrkstrmMain"
+            BlueprintIdentifier = "SwiftUniversalMain"
+            BuildableName = "SwiftUniversalMain"
+            BlueprintName = "SwiftUniversalMain"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
