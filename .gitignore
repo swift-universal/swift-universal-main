@@ -15,3 +15,6 @@ xcuserdata/
 
 # Editor state
 .vscode/
+
+# Temporary directories at any depth
+**/tmp/
