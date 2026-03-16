@@ -5,7 +5,7 @@ import PackageDescription
 // MARK: - Package Declaration
 
 let package = Package(
-  name: "WrkstrmMain",
+  name: "SwiftUniversalMain",
   platforms: [
     .iOS(.v16),
     .macOS(.v11),
@@ -15,18 +15,18 @@ let package = Package(
     .watchOS(.v9),
   ],
   products: [
-    .library(name: "WrkstrmMain", targets: ["WrkstrmMain"])
+    .library(name: "SwiftUniversalMain", targets: ["SwiftUniversalMain"])
   ],
   targets: [
     .target(
-      name: "WrkstrmMain",
-      path: "sources/wrkstrm-main",
+      name: "SwiftUniversalMain",
+      path: "Sources/SwiftUniversalMain",
       swiftSettings: Package.Inject.shared.swiftSettings,
     ),
     .testTarget(
-      name: "WrkstrmMainTests",
-      dependencies: ["WrkstrmMain"],
-      path: "tests/wrkstrm-main-tests",
+      name: "SwiftUniversalMainTests",
+      dependencies: ["SwiftUniversalMain"],
+      path: "Tests/SwiftUniversalMainTests",
       swiftSettings: Package.Inject.shared.swiftSettings,
     ),
   ],
@@ -34,15 +34,17 @@ let package = Package(
 
 // MARK: - Package Service
 
-print("---- Package Inject Deps: Begin ----")
-print("Use Local Deps? \(ProcessInfo.useLocalDeps)")
-print(Package.Inject.shared.dependencies.map(\.kind))
-print("---- Package Inject Deps: End ----")
+if ProcessInfo.processInfo.environment["DEBUG_PACKAGE_INJECT"] == "1" {
+  print("---- Package Inject Deps: Begin ----")
+  print("Use Local Deps? \(ProcessInfo.useLocalDeps)")
+  print(Package.Inject.shared.dependencies.map(\.kind))
+  print("---- Package Inject Deps: End ----")
+}
 
 extension Package {
   @MainActor
   public struct Inject {
-    public static let version = "3.0.4"
+    public static let version = "3.0.0"
 
     public var swiftSettings: [SwiftSetting] = []
     var dependencies: [PackageDescription.Package.Dependency] = []
@@ -67,7 +69,9 @@ extension SwiftSetting {
 
 extension ProcessInfo {
   public static var useLocalDeps: Bool {
-    ProcessInfo.processInfo.environment["SPM_USE_LOCAL_DEPS"] == "true"
+    guard let raw = ProcessInfo.processInfo.environment["SPM_USE_LOCAL_DEPS"] else { return true }
+    let normalized = raw.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+    return normalized == "1" || normalized == "true" || normalized == "yes" || normalized == "on"
   }
 }
 

@@ -1,15 +1,11 @@
-# 🏎️ WrkstrmMain
+# SwiftUniversalMain
 
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fwrkstrm%2FWrkstrmMain%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/wrkstrm/WrkstrmMain)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fwrkstrm%2FWrkstrmMain%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/wrkstrm/WrkstrmMain)
+`SwiftUniversalMain` provides extensions to the Swift Main library, adding functionalities for string
+manipulation, collection processing, and more.
 
-[![🧹 Swift Lint| WrkstrmMain](https://github.com/wrkstrm/WrkstrmMain/actions/workflows/wrkstrm-main-swiftlint.yml/badge.svg)](https://github.com/wrkstrm/WrkstrmMain/actions/workflows/wrkstrm-main-swiftlint.yml)
-[![🚧 Swift Test| WrkstrmMainTests](https://github.com/wrkstrm/WrkstrmMain/actions/workflows/wrkstrm-main-tests-swift.yml/badge.svg)](https://github.com/wrkstrm/WrkstrmMain/actions/workflows/wrkstrm-main-tests-swift.yml)
-
----
-
-`WrkstrmMain` provides extensions to the Swift Main library, adding functionalities for string
-manipulation, collection processing, and more. Tested via GitHub Actions.
+This package currently lives as a private universal system library inside the
+`swift-universal` collective. The package is intended to replace the old
+legacy main-library dependency lane inside private `swift-universal` packages.
 
 ## 🔑 Key Features
 
@@ -19,7 +15,7 @@ manipulation, collection processing, and more. Tested via GitHub Actions.
 
 ## Compatibility
 
-WrkstrmMain requires Swift 6.1 or later and supports:
+SwiftUniversalMain requires Swift 6.1 or later and supports:
 
 - iOS 16+
 - macOS 13+
@@ -31,34 +27,35 @@ WrkstrmMain requires Swift 6.1 or later and supports:
 
 ## 📦 Installation
 
-To integrate `WrkstrmMain` into your project, follow these steps:
+To integrate `SwiftUniversalMain` into your project, follow these steps:
 
-### 🛠 Swift Package Manager
+### Swift Package Manager
 
-Add `WrkstrmMain` as a dependency in your `Package.swift` file:
+Add `SwiftUniversalMain` as a local monorepo dependency in your `Package.swift`
+file:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/wrkstrm/wrkstrm-main.git", .upToNextMajor(from: "3.0.0"))
+    .package(name: "swift-universal-main", path: "../swift-universal-main")
 ]
 ```
 
-Include `WrkstrmMain` in your target dependencies:
+Include `SwiftUniversalMain` in your target dependencies:
 
 ```swift
 targets: [
-    .target(name: "YourTarget", dependencies: ["WrkstrmMain"]),
+    .target(name: "YourTarget", dependencies: ["SwiftUniversalMain"]),
 ]
 ```
 
 ## 📚 Usage
 
-Import `WrkstrmMain` and utilize its extensions:
+Import `SwiftUniversalMain` and utilize its extensions:
 
 1. **📥 Import the Library**:
 
    ```swift
-   import WrkstrmMain
+   import SwiftUniversalMain
    ```
 
 2. **🔨 Utilize Extensions**: Leverage various extensions for enhanced functionality:
@@ -89,7 +86,7 @@ Example Extensions:
 
 ### Random String Utilities
 
-See [Random.swift](sources/wrkstrm-main/Random/Random.swift).
+See [Random.swift](Sources/SwiftUniversalMain/Random/Random.swift).
 
 ```swift
 let ascii = Random.printableASCII(length: 8)
@@ -99,11 +96,11 @@ let ascii = Random.printableASCII(length: 8)
 
 ### JSON Helpers
 
-See DocC: open the "WrkstrmMain" documentation in Xcode or `swift-docc` and start with the
-[JSON Types Index](sources/wrkstrm-main/Documentation.docc/JSONIndex.md). The `JSON` namespace is
+See DocC: open the "SwiftUniversalMain" documentation in Xcode or `swift-docc` and start with the
+[JSON Types Index](Sources/SwiftUniversalMain/Documentation.docc/JSONIndex.md). The `JSON` namespace is
 split into small files for clarity.
 
-[`KeyedDecodingContainer+FuzzyDecoding.swift`](sources/wrkstrm-main/JSON/KeyedDecodingContainer+FuzzyDecoding.swift)
+[`KeyedDecodingContainer+FuzzyDecoding.swift`](Sources/SwiftUniversalMain/JSON/KeyedDecodingContainer+FuzzyDecoding.swift)
 adds helpers for dealing with inconsistent API responses:
 
 - `decodeAllowingNullOrEmptyObject` maps `null`, the string "null", or `{}` to `nil`.
@@ -130,19 +127,19 @@ struct Wrapper: Decodable {
 }
 ```
 
-#### Bridged Writers (via WrkstrmFoundation)
+#### Bridged Writers (via SwiftUniversalFoundation)
 
-WrkstrmFoundation extends this `JSON` namespace with human‑friendly writers and formatting:
+SwiftUniversalFoundation extends this `JSON` namespace with human‑friendly writers and formatting:
 
 - `JSON.Formatting.humanEncoder` / `JSON.Formatting.humanOptions`
 - `JSON.FileWriter.write(_:,to:)` and `.writeJSONObject(_:,to:)`
 
-Import WrkstrmFoundation alongside WrkstrmMain to access these APIs.
+Import SwiftUniversalFoundation alongside SwiftUniversalMain to access these APIs.
 
 ## 🏁 Flagship + Docs
 
-WrkstrmMain is a flagship library: we pressure‑test best practices here (API design, DocC, tests,
-observability). Explore the DocC articles under `sources/wrkstrm-main/Documentation.docc/` for
+SwiftUniversalMain is a flagship library: we pressure‑test best practices here (API design, DocC, tests,
+observability). Explore the DocC articles under `Sources/SwiftUniversalMain/Documentation.docc/` for
 symbol topics and indices.
 
 ### Path Utilities
@@ -151,7 +148,7 @@ Filter arrays of path strings using the `sourceFiles`, `nibFiles`, `baseLocalize
 `unlocalizedNibFiles` properties.
 
 See the
-[Source File Filters documentation](sources/wrkstrm-main/Documentation.docc/SourceFileFilters.md) for
+[Source File Filters documentation](Sources/SwiftUniversalMain/Documentation.docc/SourceFileFilters.md) for
 more examples.
 
 ```swift
@@ -163,9 +160,9 @@ let nibs = paths.nibFiles            // ["Main.storyboard", "Base.lproj/Main.sto
 ### Custom Collections
 
 Custom collection types are available in
-[BinaryTree.swift](sources/wrkstrm-main/CustomCollections/Classes/BinaryTree.swift),
-[SortedArray.swift](sources/wrkstrm-main/CustomCollections/Structs/SortedArray.swift) and
-[IndexedCollection.swift](sources/wrkstrm-main/CustomCollections/Structs/IndexedCollection.swift).
+[BinaryTree.swift](Sources/SwiftUniversalMain/CustomCollections/Classes/BinaryTree.swift),
+[SortedArray.swift](Sources/SwiftUniversalMain/CustomCollections/Structs/SortedArray.swift) and
+[IndexedCollection.swift](Sources/SwiftUniversalMain/CustomCollections/Structs/IndexedCollection.swift).
 
 ```swift
 let tree = BinaryTree(5)
@@ -182,7 +179,7 @@ for (index, element) in ["a", "b"].indexed() {
 
 ### `Injectable` Protocol Usage
 
-See [Injectable.swift](sources/wrkstrm-main/Protocols/Injectable.swift).
+See [Injectable.swift](Sources/SwiftUniversalMain/Protocols/Injectable.swift).
 
 ```swift
 struct NetworkService { }
@@ -202,7 +199,7 @@ vm.assertDependencies()
 
 ## 🎨 Customization
 
-`WrkstrmMain` is built with extension in mind. You can tailor it to fit your project by tapping into
+`SwiftUniversalMain` is built with extension in mind. You can tailor it to fit your project by tapping into
 a few key extension points:
 
 - **Random generators** – Extend the `Random` namespace with custom routines for generating
@@ -221,7 +218,7 @@ a few key extension points:
 - **Custom collection types** – Build domain‑specific collections by composing existing types such
   as `SortedArray` or by conforming to Swift's `Collection` protocols.
 
-These hooks make `WrkstrmMain` easy to integrate with project‑specific types and behaviors.
+These hooks make `SwiftUniversalMain` easy to integrate with project‑specific types and behaviors.
 
 ## 🧩 Dependency Injection
 
@@ -247,7 +244,7 @@ final class UserViewModel: Injectable {
 }
 ```
 
-See the [Injectable documentation](sources/wrkstrm-main/Documentation.docc/Injectable.md) for a
+See the [Injectable documentation](sources/swift-universal-main/Documentation.docc/Injectable.md) for a
 deeper explanation and more examples.
 
 ## 🧪 Testing
@@ -274,7 +271,7 @@ and create. Any contributions you make are **greatly appreciated**.
 
 ## 📬 Contact
 
-🔗 Project Link: [https://github.com/wrkstrm/WrkstrmMain](https://github.com/wrkstrm/WrkstrmMain)
+🔗 Package Home: `private/universal/substrate/collectives/swift-universal/private/universal/spm/domain/system/swift-universal-main`
 
 ## 💖 Acknowledgments
 

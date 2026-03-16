@@ -1,11 +1,5 @@
 # Changelog
 
-## [3.0.4] - 2026-02-03
-
-### Fixed
-
-- Normalize source and test directory casing to match SwiftPM target paths.
-
 ## [2.3.0] - 2025-08-05
 
 ### Added
