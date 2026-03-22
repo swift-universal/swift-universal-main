@@ -7,7 +7,7 @@ import PackageDescription
 let package = Package(
   name: "SwiftUniversalMain",
   platforms: [
-    .iOS(.v16),
+    .iOS(.v15),
     .macOS(.v11),
     .macCatalyst(.v13),
     .tvOS(.v16),
