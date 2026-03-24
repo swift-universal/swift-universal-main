@@ -16,6 +16,7 @@ An overview of the small, focused files and symbols that make up the `JSON` name
 
 ### Value Helpers
 
+- ``SwiftUniversalMain/JSON/Value``
 - ``SwiftUniversalMain/JSON/KVPair``
 - ``SwiftUniversalMain/JSON/AnyEquatableArrayEnum``
 - ``SwiftUniversalMain/JSON/AnyEquatableDictionaryEnum``

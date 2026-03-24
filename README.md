@@ -110,6 +110,10 @@ adds helpers for dealing with inconsistent API responses:
 These functions prevent decoding failures for "no data" placeholders while still throwing when a
 value has an unexpected shape.
 
+For a portable recursive JSON payload model, use `JSON.Value`. It stays below
+`Foundation` so packages can carry arbitrary JSON structure without narrowing
+their runtime surface unnecessarily.
+
 ```swift
 let object: JSON.AnyDictionary = ["name": "Alice", "age": 30]
 
