@@ -112,7 +112,12 @@ value has an unexpected shape.
 
 For a portable recursive JSON payload model, use `JSON.Value`. It stays below
 `Foundation` so packages can carry arbitrary JSON structure without narrowing
-their runtime surface unnecessarily.
+their runtime surface unnecessarily. Use `JSON.Object` when you want the common
+dictionary form at the callsite without repeating `[String: JSON.Value]`.
+
+`JSON.Value.number` uses `Double` intentionally to keep the owner model
+portable. If a higher layer needs exact decimal or large integer preservation,
+that layer should model it explicitly instead of assuming this primitive will.
 
 ```swift
 let object: JSON.AnyDictionary = ["name": "Alice", "age": 30]

@@ -10,6 +10,7 @@ An overview of the small, focused files and symbols that make up the `JSON` name
 
 ### Typealiases and Helpers
 
+- ``SwiftUniversalMain/JSON/Object``
 - ``SwiftUniversalMain/JSON/AnyDictionary``
 - ``SwiftUniversalMain/JSON/AnyEquatableStruct``
 - ``SwiftUniversalMain/JSON/AnyEquatableStructDictionary``

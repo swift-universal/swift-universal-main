@@ -27,6 +27,9 @@ let package = Package(
       name: "SwiftUniversalMainTests",
       dependencies: ["SwiftUniversalMain"],
       path: "Tests/SwiftUniversalMainTests",
+      resources: [
+        .process("resources"),
+      ],
       swiftSettings: Package.Inject.shared.swiftSettings,
     ),
   ],

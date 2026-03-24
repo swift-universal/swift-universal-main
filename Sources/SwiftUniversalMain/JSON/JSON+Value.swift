@@ -3,12 +3,21 @@
 /// Keep this surface free of `Foundation` so higher-level packages can model
 /// arbitrary JSON payloads without narrowing their portability.
 extension JSON {
+  /// A JSON object represented as string keys and recursive JSON values.
+  public typealias Object = [String: Value]
+
   public enum Value: Codable, Sendable, Equatable {
     case null
+
+    /// A JSON number stored as `Double` for portability.
+    ///
+    /// This keeps the model below `Foundation`, but it does mean callers that
+    /// need exact decimal or large integer preservation should model those
+    /// values at a higher layer instead of assuming this primitive will do it.
     case number(Double)
     case string(String)
     case bool(Bool)
-    case object([String: Value])
+    case object(Object)
     case array([Value])
 
     public init(from decoder: any Decoder) throws {
@@ -34,7 +43,7 @@ extension JSON {
         return
       }
 
-      if let object = try? container.decode([String: Value].self) {
+      if let object = try? container.decode(Object.self) {
         self = .object(object)
         return
       }
