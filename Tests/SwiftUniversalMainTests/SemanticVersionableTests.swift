@@ -12,13 +12,10 @@ private struct ExampleSchemaDocument: SemanticVersionable {
 
   private var storedSchemaVersion: String
 
-  var schemaVersion: String {
-    get { storedSchemaVersion }
-    set { storedSchemaVersion = Self.canonicalSchemaVersion(newValue) }
-  }
+  var schemaVersion: String { storedSchemaVersion }
 
   init(schemaVersion: String = Self.semanticVersion) {
-    storedSchemaVersion = Self.canonicalSchemaVersion(schemaVersion)
+    storedSchemaVersion = schemaVersion
   }
 }
 
@@ -43,13 +40,14 @@ func semanticVersionableExposesStaticAndInstanceVersionStrings() {
   #expect(ExampleSemanticVersionable().schemaVersion == "0.1.0")
 }
 
-@Test("SemanticVersionable normalizes mismatched schemaVersion assignments")
-func semanticVersionableNormalizesMismatchedSchemaVersionAssignments() {
-  var document = ExampleSchemaDocument(schemaVersion: "9.9.9")
+@Test("SemanticVersionable rejects mismatched schemaVersion assignments")
+func semanticVersionableRejectsMismatchedSchemaVersionAssignments() throws {
+  let document = ExampleSchemaDocument(schemaVersion: "0.1.0")
   #expect(document.schemaVersion == "0.1.0")
 
-  document.schemaVersion = "2.0.0"
-  #expect(document.schemaVersion == "0.1.0")
+  #expect(throws: SchemaVersionAssignmentError.self) {
+    _ = try ExampleSchemaDocument.validateAssignedSchemaVersion("2.0.0")
+  }
 }
 
 @Test("SemanticVersionable decodes only the matching schemaVersion")

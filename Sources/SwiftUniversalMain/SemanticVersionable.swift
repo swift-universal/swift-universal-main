@@ -24,29 +24,40 @@ public protocol SemanticVersionable {
   var schemaVersion: String { get }
 }
 
+public struct SchemaVersionAssignmentError: Error, Sendable, Equatable {
+  public var typeName: String
+  public var expected: String
+  public var received: String
+
+  public init(typeName: String, expected: String, received: String) {
+    self.typeName = typeName
+    self.expected = expected
+    self.received = received
+  }
+}
+
 public extension SemanticVersionable {
   /// The canonical schema version to write when a model is initialized without
   /// an explicit override.
   static var defaultSchemaVersion: String { semanticVersion }
 
-  /// Normalize a candidate schema version back to the type's semantic version.
+  /// Reject an attempted schema version reassignment.
   ///
-  /// This is intentionally lenient for assignment paths so callers can keep
-  /// writing the canonical version while still surfacing a warning when stale or
-  /// incorrect input tries to flow in.
-  static func canonicalSchemaVersion(_ candidate: String?) -> String {
-    guard let candidate else {
-      return defaultSchemaVersion
-    }
-
+  /// Top-level schema docs should expose `schemaVersion` as read-only and keep
+  /// version validation explicit instead of silently normalizing mismatches.
+  static func validateAssignedSchemaVersion(_ candidate: String) throws -> String {
     guard candidate == semanticVersion else {
       semanticVersionLog.warning(
-        "semantic-version normalized_schema_version " +
+        "semantic-version rejected_schema_version_assignment " +
           "type=\(String(reflecting: Self.self)) " +
           "expected=\(semanticVersion) " +
           "received=\(candidate)"
       )
-      return defaultSchemaVersion
+      throw SchemaVersionAssignmentError(
+        typeName: String(reflecting: Self.self),
+        expected: semanticVersion,
+        received: candidate
+      )
     }
 
     return candidate
