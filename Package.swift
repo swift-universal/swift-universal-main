@@ -17,9 +17,18 @@ let package = Package(
   products: [
     .library(name: "SwiftUniversalMain", targets: ["SwiftUniversalMain"])
   ],
+  dependencies: [
+    .package(
+      name: "common-log",
+      path: "../../../../spm/domain/system/common-log"
+    ),
+  ],
   targets: [
     .target(
       name: "SwiftUniversalMain",
+      dependencies: [
+        .product(name: "CommonLog", package: "common-log"),
+      ],
       path: "Sources/SwiftUniversalMain",
       swiftSettings: Package.Inject.shared.swiftSettings,
     ),
