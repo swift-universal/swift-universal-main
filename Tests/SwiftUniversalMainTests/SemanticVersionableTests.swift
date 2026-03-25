@@ -4,15 +4,12 @@ import Testing
 
 private struct ExampleSemanticVersionable: SemanticVersionable {
   static let semanticVersion = "0.1.0"
-  var schemaVersion: String { Self.semanticVersion }
 }
 
 private struct ExampleSchemaDocument: SemanticVersionable {
   static let semanticVersion = "0.1.0"
 
   private var storedSchemaVersion: String
-
-  var schemaVersion: String { storedSchemaVersion }
 
   init(schemaVersion: String = Self.semanticVersion) {
     storedSchemaVersion = schemaVersion
@@ -42,7 +39,7 @@ func semanticVersionableExposesStaticAndInstanceVersionStrings() {
 
 @Test("SemanticVersionable rejects mismatched schemaVersion assignments")
 func semanticVersionableRejectsMismatchedSchemaVersionAssignments() throws {
-  let document = ExampleSchemaDocument(schemaVersion: "0.1.0")
+  let document = ExampleSchemaDocument(schemaVersion: "0.2.0")
   #expect(document.schemaVersion == "0.1.0")
 
   #expect(throws: SchemaVersionAssignmentError.self) {

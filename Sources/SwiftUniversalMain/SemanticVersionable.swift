@@ -37,6 +37,13 @@ public struct SchemaVersionAssignmentError: Error, Sendable, Equatable {
 }
 
 public extension SemanticVersionable {
+  /// The canonical schema version exposed by instances of the conforming type.
+  ///
+  /// Schema docs can keep a private stored wire field for synthesized Codable
+  /// support, but the public surface should always report the type's own
+  /// semantic line.
+  var schemaVersion: String { Self.semanticVersion }
+
   /// The canonical schema version to write when a model is initialized without
   /// an explicit override.
   static var defaultSchemaVersion: String { semanticVersion }
