@@ -81,7 +81,7 @@ extension SwiftSetting {
 
 extension ProcessInfo {
   public static var useLocalDeps: Bool {
-    guard let raw = ProcessInfo.processInfo.environment["SPM_USE_LOCAL_DEPS"] else { return true }
+    guard let raw = ProcessInfo.processInfo.environment["SPM_USE_LOCAL_DEPS"] else { return false }
     let normalized = raw.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
     return normalized == "1" || normalized == "true" || normalized == "yes" || normalized == "on"
   }
